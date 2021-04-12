@@ -83,7 +83,7 @@ while (pandatest::TEST_PASS && (pandatest::TEST_ITERATOR < repetition)){\
 		pandatest::Fail(__VA_ARGS__); \
 		auto disfail = pandatest::DisplayFail(__VA_ARGS__);\
 		disfail.display(std::string(description)) << std::endl;}\
-	catch (const exceptionType&) {SUCCESS(description)}\
+	catch (const exceptionType&) {;}\
 	catch (...) {\
 		pandatest::TEST_PASS = false;\
 		/*The Fail and DisplayFail functions are overloaded to change the behaviour of the test if SKIP is added.*/ \
@@ -91,6 +91,7 @@ while (pandatest::TEST_PASS && (pandatest::TEST_ITERATOR < repetition)){\
 		auto disfail = pandatest::DisplayFail(__VA_ARGS__);\
 		disfail.display(std::string(description)) << std::endl;}\
 	pandatest::TEST_ITERATOR++;}\
+SUCCESS(description)\
 pandatest::TestCount();
 
 /*This maccro allows to add a unit test that checks the performance of a given function against a given time for a fixed number of executions.*/
