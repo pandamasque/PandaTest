@@ -91,7 +91,8 @@ while (pandatest::TEST_PASS && (pandatest::TEST_ITERATOR < repetition)){\
 		auto disfail = pandatest::DisplayFail(__VA_ARGS__);\
 		disfail.display(std::string(description)) << std::endl;}\
 	pandatest::TEST_ITERATOR++;}\
-SUCCESS(description)\
+if (pandatest::TEST_PASS)\
+	SUCCESS(description)\
 pandatest::TestCount();
 
 /*This maccro allows to add a unit test that checks the performance of a given function against a given time for a fixed number of executions.*/
